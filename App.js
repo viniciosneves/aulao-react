@@ -1,21 +1,22 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import Frases from './src/views/Frases';
+import Formulario from './src/views/Formulario';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import TelaBase from './src/components/TelaBase';
+
+const Tab = createBottomTabNavigator();
+
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <TelaBase>
+      <NavigationContainer>
+        <Tab.Navigator>
+          <Tab.Screen name="Frases" component={Frases} />
+          <Tab.Screen name="Formulario" component={Formulario} />
+        </Tab.Navigator>
+      </NavigationContainer>
+    </TelaBase>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
